@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "SCPlayerSwift"
-s.version          = "0.0.1"
+s.version          = "0.0.2"
 s.summary          = "Video Player Using Swift, based on AVPlayer"
 s.swift_versions   = "5"
 s.description      = <<-DESC
@@ -14,8 +14,8 @@ s.author           = { "Eliyar Eziz" => "eliyar917@gmail.com" }
 s.source           = { :git => "https://github.com/KyleWhale/SCPlayerSwift.git", :tag => s.version.to_s }
 s.social_media_url = 'http://weibo.com/536445669'
 
-s.ios.deployment_target = '10.0'
-s.platform     = :ios, '10.0'
+s.ios.deployment_target = '11.0'
+s.platform     = :ios, '11.0'
 s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
 
 s.source_files = 'Source/*.swift'

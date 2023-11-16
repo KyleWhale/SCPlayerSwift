@@ -59,6 +59,9 @@ public protocol BMPlayerDelegate : class {
     
     func bmPlayer(player: BMPlayer, playerDidTapTVBtn isFullscreen: Bool)
 
+    func bmPlayerDidTapMinusBtn(player: BMPlayer)
+    
+    func bmPlayerDidTapPlusBtn(player: BMPlayer)
 }
 
 open class BMPlayer: UIView {
@@ -630,6 +633,7 @@ extension BMPlayer: BMPlayerControlViewDelegate {
             self.controlView.currentTimeLabel.text = formatSecondsToString(target)
             self.controlView.timeSlider.value = Float(target) / Float(self.totalDuration)
             
+            self.delegate?.bmPlayerDidTapMinusBtn(player: self)
             seek(target, completion: {[weak self] in
               self?.autoPlay()
             })
@@ -639,6 +643,7 @@ extension BMPlayer: BMPlayerControlViewDelegate {
             self.controlView.currentTimeLabel.text = formatSecondsToString(target)
             self.controlView.timeSlider.value = Float(target) / Float(self.totalDuration)
             
+            self.delegate?.bmPlayerDidTapPlusBtn(player: self)
             seek(target, completion: {[weak self] in
               self?.autoPlay()
             })
