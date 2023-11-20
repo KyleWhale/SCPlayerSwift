@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "SCPlayerSwift"
-s.version          = "0.0.2"
+s.version          = "0.0.3"
 s.summary          = "Video Player Using Swift, based on AVPlayer"
 s.swift_versions   = "5"
 s.description      = <<-DESC

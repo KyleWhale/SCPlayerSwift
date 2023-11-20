@@ -61,8 +61,6 @@ open class BMPlayerControlView: UIView {
         lab.textColor = .init(red: 236 / 255.0, green: 236 / 255.0, blue: 236 / 255.0, alpha: 1)
         lab.textAlignment = .center
         lab.numberOfLines = 0
-//        lab.adjustsFontSizeToFitWidth = true
-//        lab.minimumScaleFactor = 0.5
         return lab
     }()
     
@@ -450,11 +448,11 @@ open class BMPlayerControlView: UIView {
         self.subtitleBackView.snp.makeConstraints { [unowned self](make) in
             make.top.equalTo(self.snp.bottom).inset(54 + (LQGSize.bottomSafeHeight > 0 ? LQGSize.bottomSafeHeight : 20))
             make.centerX.equalToSuperview()
-            make.width.lessThanOrEqualToSuperview().offset(-10).priority(750)
         }
         
         self.subtitleLabel.snp.makeConstraints { [unowned self](make) in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
+            make.width.lessThanOrEqualTo(UIScreen.main.bounds.size.width-30)
         }
         
         // 主遮罩
@@ -733,7 +731,6 @@ open class BMPlayerControlView: UIView {
                 make.top.equalTo(self.snp.bottom).inset(54 + (self.isFullscreen && LQGSize.bottomSafeHeight > 0 ? LQGSize.bottomSafeHeight : 20))
             }
             make.centerX.equalToSuperview()
-            make.width.lessThanOrEqualToSuperview().offset(-10).priority(750)
         }
         
         UIView.animate(withDuration: 0.3, animations: {[weak self] in
