@@ -386,6 +386,7 @@ open class BMPlayer: UIView {
             UIApplication.shared.setStatusBarHidden(false, with: .fade)
             UIApplication.shared.statusBarOrientation = .landscapeRight
         }
+        UIViewController.attemptRotationToDeviceOrientation()
     }
     
     // MARK: - 生命周期
@@ -659,10 +660,11 @@ extension BMPlayer: BMPlayerControlViewDelegate {
         case .back:
             if isFullScreen == false {
                 self.playerLayer?.prepareToDeinit()
+                self.delegate?.bmPlayer(player: self, playerDidTapBackBtn: false)
             } else {
                 self.fullScreenButtonPressed()
+                self.delegate?.bmPlayer(player: self, playerDidTapBackBtn: true)
             }
-            self.delegate?.bmPlayer(player: self, playerDidTapBackBtn: self.isFullScreen)
         case .fullscreen:
             self.fullScreenButtonPressed()
         case .lock:
